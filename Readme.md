@@ -30,8 +30,9 @@ If an applicant X and an employer Y could form an unstable pair, Y would have ma
 We took the theroy of Gale–Shapley and applied to a specific case: the many-to-many association problem. Strating from a simpler case of One-to-One problem, we developed a Many-to-Many solution, by considering each class having a certain capacity limit. Below you can see the different setting of the two problems.
 
 #### Simple case: one to one algorithm
-![Screenshot%202023-11-20%20at%2019.16.32.png](attachment:Screenshot%202023-11-20%20at%2019.16.32.png)
-![Screenshot%202023-11-20%20at%2019.20.12.png](attachment:Screenshot%202023-11-20%20at%2019.20.12.png)
+![M2M_phase123.png](attachment:M2M_phase123.png)
+
+![M2M_phase456.png](attachment:M2M_phase456.png)
 
 #### Adjusted: many to many algorithm
 The main difference from the previous problem is that now Jobs and Users have both a capacity limit; in the example we can imagine that every candidate can have simoultaneously more than 1 job, but of course there is a limit to how many simoultaneous jobs one can have based on their availability. In the same way, every job can be choosen by multiple people dividing the work among themselves, but of course there is a maximum amount to respect. 

@@ -4,7 +4,7 @@
 
 In mathematics, economics, and computer science, the Gale–Shapley algorithm (also known as the deferred acceptance algorithm or propose-and-reject algorithm) is an algorithm for finding a solution to the stable matching problem, named for David Gale and Lloyd Shapley. It takes polynomial time, and the time is linear in the size of the input to the algorithm. It is a truthful mechanism from the point of view of the proposing participants, for whom the solution will always be optimal.
 
-![Gale-Shapley.gif](attachment:Gale-Shapley.gif)
+![Gale-Shapley (1)](https://github.com/simothejudge/many_to_many/assets/37406249/c360b78e-2d79-4c07-8e31-ae5901ea8318)
 
 In 1962, David Gale and Lloyd Shapley proved that, for any equal number of participants of each type, it is always possible to find a matching in which all pairs are stable.
 
@@ -30,9 +30,9 @@ If an applicant X and an employer Y could form an unstable pair, Y would have ma
 We took the theroy of Gale–Shapley and applied to a specific case: the many-to-many association problem. Strating from a simpler case of One-to-One problem, we developed a Many-to-Many solution, by considering each class having a certain capacity limit. Below you can see the different setting of the two problems.
 
 #### Simple case: one to one algorithm
-![M2M_phase123.png](attachment:M2M_phase123.png)
+<img width="1221" alt="M2M_phase123" src="https://github.com/simothejudge/many_to_many/assets/37406249/09179624-5182-4747-bcd4-aab4e65f3186">
 
-![M2M_phase456.png](attachment:M2M_phase456.png)
+<img width="1306" alt="M2M_phase456" src="https://github.com/simothejudge/many_to_many/assets/37406249/c334b2af-4e41-499c-9e96-54060f21a55c">
 
 #### Adjusted: many to many algorithm
 The main difference from the previous problem is that now Jobs and Users have both a capacity limit; in the example we can imagine that every candidate can have simoultaneously more than 1 job, but of course there is a limit to how many simoultaneous jobs one can have based on their availability. In the same way, every job can be choosen by multiple people dividing the work among themselves, but of course there is a maximum amount to respect. 
@@ -40,15 +40,19 @@ The main difference from the previous problem is that now Jobs and Users have bo
 
 ###### Phase 1:
 
-we choose an arbitrary starting point (let's start by looking at the users and specifically following the order given): 
+We choose an arbitrary starting point (let's start by looking at the users and specifically following the order given): 
+
 User x: 
+
     - User x likes Job 2 
     - Check: Job 2 has a free spot (no capacity reach)
     - Check: Job 2 likes User x back
     - User x and Job 2 matches
     - Update: the first spot of User x and Job 2 are filled reciprocally
 
+
 User y: 
+
     - User y likes Job 1 
     - Check: Job 1 has a free spot (no capacity reach)
     - Check: Job 1 likes User x back
@@ -56,6 +60,7 @@ User y:
     - Update: the first spots of User y and Job 1 are filled reciprocally
 
 User z: 
+
     - User z likes Job 8 
     - Check: Job 8 has a free spot (no capacity reach)
     - Check: Job 8 likes User z back
@@ -63,6 +68,7 @@ User z:
     - Update: the first spots of User z and Job 8 are filled reciprocally
 
 User w: 
+
     - User w likes Job 2 
     - Check: Job 2 has a free spot (no capacity reach)
     - Check: Job 2 likes User w back
@@ -71,7 +77,9 @@ User w:
 
 
 ###### Phase 2:
+
 User x: 
+
     - User x likes Job 4 as second preference
     - Check: Job 4 has a free spot (no capacity reach)
     - Check: Job 4 likes User x back
@@ -79,6 +87,7 @@ User x:
     - Update: the second spot of User x and Job 4 are filled reciprocally
 
 User y: 
+
     - User y likes Job 2
     - Check: Job 2 has reach capacity: if Job 2 prefers User y to the User in the last spot (User w) then we substitute
     - Check: Job 2 likes User y back and it likes User y more than User w (second preference)
@@ -86,6 +95,7 @@ User y:
     - Update: the second spot of User y is filled with Job 2 while the last spot of Job 2 is substituted with User y, leavng User w, deleting Job 2 from User w's list of recommendations.
 
 User z: 
+
     - User z likes Job 7 
     - Check: Job 7 has a free spot (no capacity reach)
     - Check: Job 7 likes User z back
@@ -93,13 +103,16 @@ User z:
     - Update: the second spot of User z and the first one of Job 7 are filled reciprocally
 
 User w: 
+
     - User w likes Job 4
     - Check: Job 4 has a free spot (no capacity reach)
     - Check: Job 4 doesn't likes User w back
     - User w and Job 4 don't match, User w is left with no assignment for this phase
 
 ###### Phase 3:
+
 User x: 
+
     - User x likes Job 3 as third preference
     - Check: Job 3 has a free spot (no capacity reach)
     - Check: Job 3 likes User x back
@@ -107,9 +120,11 @@ User x:
     - Update: the third spot of User x and the first one of Job 3 are filled reciprocally
 
 User y: 
+
     - User y has reached capacity. 
 
 User z: 
+
     - User z likes Job 4 
     - Check: Job 4 has a free spot (no capacity reach)
     - Check: Job 4 likes User z back
@@ -117,10 +132,12 @@ User z:
     - Update: the second spot of User z and of Job 4 are filled reciprocally
 
 User w: 
+
     - User w likes Job 3
     - Check: Job 3 has a free spot (no capacity reach)
     - Check: Job 3 likes User w back
     - Update: the first spot of User w and the second one of Job 3 are filled reciprocally
+
 
 
 
